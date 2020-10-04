@@ -5,3 +5,5 @@
     - name: "Include ansible-role-ohmyzsh"
       include_role:
         name: "ansible-role-ohmyzsh"
+      vars:
+        ohmyzsh_theme: "{{ ansible_env.ohmyzsh_theme }}"

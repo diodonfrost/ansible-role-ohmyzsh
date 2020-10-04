@@ -1,12 +1,21 @@
 ---
 dependency:
   name: galaxy
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
 driver:
   name: docker
 platforms:
-  - name: instance
-    image: docker.io/pycontribs/centos:8
-    pre_build_image: true
+  - name: linux
+    image: diodonfrost/${distribution:-centos-8}-ansible:latest
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: yes
+    pre_build_image: yes
+    env:
+      ohmyzsh_theme: "${ohmyzsh_theme:-robbyrussell}"
 provisioner:
   name: ansible
 verifier:
