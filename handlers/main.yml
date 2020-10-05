@@ -1,2 +1,11 @@
 ---
 # handlers file for ansible-role-ohmyzsh
+
+- name: Configure .zshrc
+  copy:
+    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
+    dest: ~/.zshrc
+    mode: '0644'
+    remote_src: yes
+  become_user: "{{ item }}"
+  with_items: "{{ ohmyzsh_users }}"

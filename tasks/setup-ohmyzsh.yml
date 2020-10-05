@@ -1,0 +1,25 @@
+---
+- name: Setup | Package requirements
+  package:
+    name: "{{ package_requirements }}"
+    state: present
+
+- name: Setup | Download ohmyzsh
+  git:
+    repo: 'https://github.com/ohmyzsh/ohmyzsh.git'
+    dest: ~/.oh-my-zsh
+    depth: 1
+    update: no
+  become_user: "{{ item }}"
+  notify: Configure .zshrc
+  with_items: "{{ ohmyzsh_users }}"
+
+- name: Setup | Flush handler
+  meta: flush_handlers
+
+- name: Setup | Set zsh as default user shell
+  user:
+    name: "{{ item }}"
+    shell: "{{ zsh_bin_path }}"
+  become_user: "{{ item }}"
+  with_items: "{{ ohmyzsh_users }}"
