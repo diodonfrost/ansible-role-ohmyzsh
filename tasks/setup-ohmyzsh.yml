@@ -23,3 +23,11 @@
     shell: "{{ zsh_bin_path }}"
   become_user: "{{ item }}"
   with_items: "{{ ohmyzsh_users }}"
+
+- name: Setup | Set ohmyzsh theme to used
+  lineinfile:
+    path: ~/.zshrc
+    regexp: '^ZSH_THEME='
+    line: 'ZSH_THEME="{{ ohmyzsh_theme }}"'
+  become_user: "{{ item }}"
+  with_items: "{{ ohmyzsh_users }}"
