@@ -1,0 +1,183 @@
+---
+dist: bionic
+services:
+  - docker
+
+language: python
+python:
+  - "3.7"
+
+env:
+#-----------------------------------------------
+#
+# CentOS
+#
+#-----------------------------------------------
+  - distribution: centos-8
+    ohmyzsh_theme: intheloop
+  - distribution: centos-8
+    ohmyzsh_theme: jispwoso
+  - distribution: centos-7
+    ohmyzsh_theme: intheloop
+  - distribution: centos-7
+    ohmyzsh_theme: jispwoso
+  - distribution: centos-6
+    ohmyzsh_theme: intheloop
+  - distribution: centos-6
+    ohmyzsh_theme: jispwoso
+
+#--------------------------------
+#
+# Fedora
+#
+#--------------------------------
+  - distribution: fedora-32
+    ohmyzsh_theme: intheloop
+  - distribution: fedora-32
+    ohmyzsh_theme: jispwoso
+  - distribution: fedora-31
+    ohmyzsh_theme: intheloop
+  - distribution: fedora-31
+    ohmyzsh_theme: jispwoso
+  - distribution: fedora-30
+    ohmyzsh_theme: intheloop
+  - distribution: fedora-30
+    ohmyzsh_theme: jispwoso
+  - distribution: fedora-29
+    ohmyzsh_theme: intheloop
+  - distribution: fedora-29
+    ohmyzsh_theme: jispwoso
+  - distribution: fedora-28
+    ohmyzsh_theme: intheloop
+  - distribution: fedora-28
+    ohmyzsh_theme: jispwoso
+  - distribution: fedora-27
+    ohmyzsh_theme: intheloop
+  - distribution: fedora-27
+    ohmyzsh_theme: jispwoso
+  - distribution: fedora-26
+    ohmyzsh_theme: intheloop
+  - distribution: fedora-26
+    ohmyzsh_theme: jispwoso
+
+#--------------------------------
+#
+# Ubuntu
+#
+#--------------------------------
+  - distribution: ubuntu-20.04
+    ohmyzsh_theme: intheloop
+  - distribution: ubuntu-20.04
+    ohmyzsh_theme: jispwoso
+  - distribution: ubuntu-18.04
+    ohmyzsh_theme: intheloop
+  - distribution: ubuntu-18.04
+    ohmyzsh_theme: jispwoso
+  - distribution: ubuntu-16.04
+    ohmyzsh_theme: intheloop
+  - distribution: ubuntu-16.04
+    ohmyzsh_theme: jispwoso
+  - distribution: ubuntu-14.04
+    ohmyzsh_theme: intheloop
+  - distribution: ubuntu-14.04
+    ohmyzsh_theme: jispwoso
+  - distribution: ubuntu-12.04
+    ohmyzsh_theme: intheloop
+  - distribution: ubuntu-12.04
+    ohmyzsh_theme: jispwoso
+
+#--------------------------------
+#
+# Debian
+#
+#--------------------------------
+  - distribution: debian-10
+    ohmyzsh_theme: intheloop
+  - distribution: debian-10
+    ohmyzsh_theme: jispwoso
+  - distribution: debian-9
+    ohmyzsh_theme: intheloop
+  - distribution: debian-9
+    ohmyzsh_theme: jispwoso
+  - distribution: debian-8
+    ohmyzsh_theme: intheloop
+  - distribution: debian-8
+    ohmyzsh_theme: jispwoso
+
+#--------------------------------
+#
+# Oraclelinux
+#
+#--------------------------------
+  - distribution: oraclelinux-8
+    ohmyzsh_theme: intheloop
+  - distribution: oraclelinux-8
+    ohmyzsh_theme: jispwoso
+  - distribution: oraclelinux-7
+    ohmyzsh_theme: intheloop
+  - distribution: oraclelinux-7
+    ohmyzsh_theme: jispwoso
+  - distribution: oraclelinux-6
+    ohmyzsh_theme: intheloop
+  - distribution: oraclelinux-6
+    ohmyzsh_theme: jispwoso
+
+#--------------------------------
+#
+# Amazonlinux
+#
+#--------------------------------
+  - distribution: amazonlinux-2
+    ohmyzsh_theme: intheloop
+  - distribution: amazonlinux-2
+    ohmyzsh_theme: jispwoso
+  - distribution: amazonlinux-1
+    ohmyzsh_theme: intheloop
+  - distribution: amazonlinux-1
+    ohmyzsh_theme: jispwoso
+
+#--------------------------------
+#
+# Opensuse
+#
+#--------------------------------
+  - distribution: opensuse-leap
+    ohmyzsh_theme: intheloop
+  - distribution: opensuse-leap
+    ohmyzsh_theme: jispwoso
+  - distribution: opensuse-tumbleweed
+    ohmyzsh_theme: intheloop
+  - distribution: opensuse-tumbleweed
+    ohmyzsh_theme: jispwoso
+
+#--------------------------------
+#
+# Archlinux
+#
+#--------------------------------
+  - distribution: archlinux-rolling
+    ohmyzsh_theme: intheloop
+  - distribution: archlinux-rolling
+    ohmyzsh_theme: jispwoso
+
+#--------------------------------
+#
+# Alpine
+#
+#--------------------------------
+  - distribution: alpine-rolling
+    ohmyzsh_theme: intheloop
+  - distribution: alpine-rolling
+    ohmyzsh_theme: jispwoso
+
+before_install:
+  - 'docker pull diodonfrost/${distribution}-ansible:latest'
+
+install:
+  - 'pip install -r requirements.txt'
+
+script:
+  - 'distribution=${distribution} ohmyzsh_theme=${ohmyzsh_theme} molecule test'
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
