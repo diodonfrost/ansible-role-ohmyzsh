@@ -7,3 +7,7 @@ ohmyzsh_users: "{{ ansible_user_id }}"
 
 # Setup the ohmyzsh theme to used
 ohmyzsh_theme: robbyrussell
+
+# Setup the ohmyzsh plugins to used
+ohmyzsh_plugins:
+  - git

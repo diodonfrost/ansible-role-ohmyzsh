@@ -31,3 +31,11 @@
     line: 'ZSH_THEME="{{ ohmyzsh_theme }}"'
   become_user: "{{ item }}"
   with_items: "{{ ohmyzsh_users }}"
+
+- name: Setup | Set ohmyzsh plugins to used
+  lineinfile:
+    path: ~/.zshrc
+    regexp: '^plugins='
+    line: 'plugins=({{ ohmyzsh_plugins | join(" ") }})'
+  become_user: "{{ item }}"
+  with_items: "{{ ohmyzsh_users }}"

@@ -7,3 +7,4 @@
         name: "ansible-role-ohmyzsh"
       vars:
         ohmyzsh_theme: "{{ ansible_env.ohmyzsh_theme }}"
+        ohmyzsh_plugins: "{{ ansible_env.ohmyzsh_plugins.split(',') }}"

@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: ${{ matrix.distribution }} ohmyzsh ${{ matrix.ohmyzsh_theme }}
+    name: ${{ matrix.distribution }} ohmyzsh ${{ matrix.ohmyzsh_theme }} ${{ matrix.ohmyzsh_plugins }}
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
@@ -44,6 +44,9 @@ jobs:
         ohmyzsh_theme:
           - intheloop
           - jispwoso
+        ohmyzsh_plugins:
+          - "git,docker,systemd"
+          - "rails,git,ruby"
 
     steps:
       - name: Checkout repository
@@ -61,4 +64,4 @@ jobs:
 
       - name: Test Ansible role
         run: |
-          distribution=${{ matrix.distribution }} ohmyzsh_theme=${{ matrix.ohmyzsh_theme }} molecule test
+          distribution=${{ matrix.distribution }} ohmyzsh_theme=${{ matrix.ohmyzsh_theme }} ohmyzsh_plugins=${{ matrix.ohmyzsh_plugins }} molecule test
