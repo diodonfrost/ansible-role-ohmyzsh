@@ -10,6 +10,7 @@
     dest: ~/.oh-my-zsh
     depth: 1
     update: no
+  become: yes
   become_user: "{{ item }}"
   notify: Configure .zshrc
   with_items: "{{ ohmyzsh_users }}"
@@ -21,6 +22,7 @@
   user:
     name: "{{ item }}"
     shell: "{{ zsh_bin_path }}"
+  become: yes
   become_user: "{{ item }}"
   with_items: "{{ ohmyzsh_users }}"
 
@@ -29,6 +31,7 @@
     path: ~/.zshrc
     regexp: '^ZSH_THEME='
     line: 'ZSH_THEME="{{ ohmyzsh_theme }}"'
+  become: yes
   become_user: "{{ item }}"
   with_items: "{{ ohmyzsh_users }}"
 
@@ -37,5 +40,6 @@
     path: ~/.zshrc
     regexp: '^plugins='
     line: 'plugins=({{ ohmyzsh_plugins | join(" ") }})'
+  become: yes
   become_user: "{{ item }}"
   with_items: "{{ ohmyzsh_users }}"
