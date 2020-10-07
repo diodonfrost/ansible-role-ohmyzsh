@@ -7,5 +7,6 @@
     dest: ~/.zshrc
     mode: '0644'
     remote_src: yes
+  become: yes
   become_user: "{{ item }}"
   with_items: "{{ ohmyzsh_users }}"
