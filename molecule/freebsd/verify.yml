@@ -1,0 +1,22 @@
+---
+- name: Verify
+  hosts: all
+  become: yes
+  tasks:
+    - name: Verify | ohmyzsh folder shoud be present
+      file:
+        path: ~/.oh-my-zsh
+      register: ohmyzsh_file
+
+    - name: Verify | zsh shell should be use
+      user:
+        name: "{{ ansible_user_id }}"
+        shell: /usr/local/bin/zsh
+      register: ohmyzsh_shell
+
+    - name: Verify | Verify commands outputs
+      assert:
+        that:
+          - not ohmyzsh_file.changed
+          - not ohmyzsh_shell.changed
+        success_msg: "All tests passed"

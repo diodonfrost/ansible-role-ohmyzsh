@@ -117,6 +117,8 @@ To develop or test you'll need to have installed the following:
 * [Python](https://www.python.org/) (including python-pip)
 * [Ansible](https://www.ansible.com/)
 * [Molecule](http://molecule.readthedocs.io/)
+* [Virtualbox](https://www.virtualbox.org/) (if you test BSD system)
+* [Vagrant](https://www.vagrantup.com/downloads.html) (if you test BSD system)
 
 ### Testing with Docker
 
@@ -138,6 +140,13 @@ distribution=centos-7 molecule converge
 
 # Launch tests on centos-7 instance
 distribution=centos-7 molecule verify
+```
+
+### Testing with Vagrant and Virtualbox
+
+```shell
+# Test ansible role with FreeBSD
+molecule test -s freebsd
 ```
 
 ## License
