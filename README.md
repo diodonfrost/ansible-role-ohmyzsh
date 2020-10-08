@@ -56,6 +56,12 @@ Supported platforms:
 - name: ClearLinux
   versions:
     - any
+- name: FreeBSD
+  versions:
+    - any
+- name: OpenBSD
+  versions:
+    - any
 ```
 
 ## Role Variables
@@ -147,6 +153,9 @@ distribution=centos-7 molecule verify
 ```shell
 # Test ansible role with FreeBSD
 molecule test -s freebsd
+
+# Test ansible role with OpenBSD
+molecule test -s openbsd
 ```
 
 ## License
