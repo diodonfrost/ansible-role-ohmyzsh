@@ -4,5 +4,11 @@
 - name: Include OS specific variables.
   include_vars: "{{ ansible_system }}.yml"
 
-- name: Install | ohmyzsh
+- name: Install ohmyzsh
   include_tasks: "setup-ohmyzsh.yml"
+
+- name: Defined ohmyzsh themes
+  include_tasks: "themes.yml"
+
+- name: Install ohmyzsh plugins
+  include_tasks: "plugins.yml"
