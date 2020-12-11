@@ -68,3 +68,10 @@ jobs:
           image: ${{ matrix.image }}
           ohmyzsh_theme: ${{ matrix.ohmyzsh_theme }}
           ohmyzsh_plugins: ${{ matrix.ohmyzsh_plugins }}
+
+      - name: Test Ansible role with check_mode enable
+        run: molecule check
+        env:
+          image: ${{ matrix.image }}
+          ohmyzsh_theme: ${{ matrix.ohmyzsh_theme }}
+          ohmyzsh_plugins: ${{ matrix.ohmyzsh_plugins }}
