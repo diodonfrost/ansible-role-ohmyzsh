@@ -63,5 +63,8 @@ jobs:
           pip install ansible ansible-lint molecule-docker docker
 
       - name: Test Ansible role
-        run: |
-          image=${{ matrix.image }} ohmyzsh_theme=${{ matrix.ohmyzsh_theme }} ohmyzsh_plugins=${{ matrix.ohmyzsh_plugins }} molecule test
+        run: molecule test
+        env:
+          image: ${{ matrix.image }}
+          ohmyzsh_theme: ${{ matrix.ohmyzsh_theme }}
+          ohmyzsh_plugins: ${{ matrix.ohmyzsh_plugins }}
