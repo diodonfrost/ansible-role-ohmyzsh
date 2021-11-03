@@ -10,6 +10,8 @@ jobs:
   build:
     name: ${{ matrix.image }} ohmyzsh ${{ matrix.ohmyzsh_theme }} ${{ matrix.ohmyzsh_plugins }}
     runs-on: ubuntu-18.04
+    env:
+      docker_namepsace: ghcr.io/diodonfrost/docker-ansible
     strategy:
       fail-fast: false
       matrix:
@@ -68,6 +70,7 @@ jobs:
       - name: Test Ansible role
         run: molecule test
         env:
+          namespace: ${{ env.docker_namepsace }}
           image: ansible-${{ matrix.image }}
           ohmyzsh_theme: ${{ matrix.ohmyzsh_theme }}
           ohmyzsh_plugins: ${{ matrix.ohmyzsh_plugins }}
