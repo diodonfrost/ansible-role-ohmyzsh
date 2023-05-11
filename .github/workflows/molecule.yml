@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: ${{ matrix.image }} ohmyzsh ${{ matrix.ohmyzsh_theme }} ${{ matrix.ohmyzsh_plugins }}
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
     env:
       docker_namepsace: ghcr.io/diodonfrost/docker-ansible
     strategy:
@@ -55,12 +55,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.8
+          python-version: 3.9
 
       - name: Install Molecule
         run: |
