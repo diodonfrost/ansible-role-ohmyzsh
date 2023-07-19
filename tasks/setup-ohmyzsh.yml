@@ -23,3 +23,4 @@
   ansible.builtin.command: usermod --shell {{ zsh_bin_path }} {{ item }}
   become: yes
   with_items: "{{ ohmyzsh_users }}"
+  when: ansible_facts["user_shell"] != zsh_bin_path
