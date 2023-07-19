@@ -18,10 +18,8 @@
 - name: Setup | Flush handler
   meta: flush_handlers
 
+# @see https://stackoverflow.com/a/69102800
 - name: Setup | Set zsh as default user shell
-  user:
-    name: "{{ item }}"
-    shell: "{{ zsh_bin_path }}"
+  ansible.builtin.command: usermod --shell {{ zsh_bin_path }} {{ item }}
   become: yes
-  become_user: "{{ item }}"
   with_items: "{{ ohmyzsh_users }}"
