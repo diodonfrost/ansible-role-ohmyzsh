@@ -4,6 +4,6 @@
     path: ~/.zshrc
     regexp: '^plugins='
     line: 'plugins=({{ ohmyzsh_plugins | join(" ") }})'
-  become: yes
+  become: true
   become_user: "{{ item }}"
   with_items: "{{ ohmyzsh_users }}"

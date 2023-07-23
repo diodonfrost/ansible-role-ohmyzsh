@@ -10,7 +10,7 @@
     dest: ~/.oh-my-zsh
     depth: 1
     update: no
-  become: yes
+  become: true
   become_user: "{{ item }}"
   notify: Configure .zshrc
   with_items: "{{ ohmyzsh_users }}"
@@ -21,6 +21,6 @@
 # @see https://stackoverflow.com/a/69102800
 - name: Setup | Set zsh as default user shell
   ansible.builtin.command: usermod --shell {{ zsh_bin_path }} {{ item }}
-  become: yes
+  become: true
   with_items: "{{ ohmyzsh_users }}"
   when: ansible_facts["user_shell"] != zsh_bin_path
