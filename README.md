@@ -20,29 +20,23 @@ Supported platforms:
     - 6
 - name: Fedora
   versions:
-    - 32
-    - 31
-    - 30
-    - 29
-    - 28
-    - 27
-    - 26
+    - any
 - name: Debian
   versions:
     - buster
     - stretch
     - jessie
+    - wheezy
+    - squeeze
 - name: Ubuntu
   versions:
-    - focal
     - bionic
     - xenial
     - trusty
+    - precise
 - name: Amazon
   versions:
-    - Candidate
-    - 2017.12
-    - 2016.03
+    - any
 - name: opensuse
   versions:
     - any
@@ -52,6 +46,9 @@ Supported platforms:
 - name: Alpine
   versions:
     - any
+- name: Gentoo
+  versions:
+    - any
 - name: ClearLinux
   versions:
     - any
@@ -59,6 +56,9 @@ Supported platforms:
   versions:
     - any
 - name: OpenBSD
+  versions:
+    - any
+- name: MacOSX
   versions:
     - any
 ```
