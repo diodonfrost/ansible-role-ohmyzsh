@@ -2,7 +2,14 @@
 # tasks file for ansible-role-ohmyzsh
 
 - name: Include OS specific variables.
-  include_vars: "{{ ansible_system }}.yml"
+  include_vars: "{{ lookup('ansible.builtin.first_found', params) }}"
+  vars:
+    params:
+      files:
+        - "{{ ansible_system }}.yml"
+        - main.yml
+      paths:
+        - 'vars'
 
 - name: Install ohmyzsh
   include_tasks: "setup-ohmyzsh.yml"
