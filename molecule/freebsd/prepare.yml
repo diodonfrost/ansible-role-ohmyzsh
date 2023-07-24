@@ -5,5 +5,5 @@
   tasks:
     - name: FreeBSD | Install Ansible requirements
       pkgng:
-        name: gtar, unzip
+        name: gtar
         state: present
