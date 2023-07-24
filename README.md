@@ -122,7 +122,7 @@ To develop or test you'll need to have installed the following:
 * [Python](https://www.python.org/) (including python-pip)
 * [Ansible](https://www.ansible.com/)
 * [Molecule](http://molecule.readthedocs.io/)
-* [Virtualbox](https://www.virtualbox.org/) (bsd test only)
+* [Libvirt](hhttps://libvirt.org/) (bsd test only)
 * [Vagrant](https://www.vagrantup.com/downloads.html) (bsd test only)
 
 ### Testing with Docker
@@ -147,7 +147,7 @@ image=centos:7 molecule converge
 image=centos:7 molecule verify
 ```
 
-### Testing with Vagrant and Virtualbox
+### Testing with Vagrant and Libvirt
 
 ```shell
 # Test ansible role with FreeBSD
