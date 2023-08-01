@@ -9,9 +9,13 @@
 
     - name: Verify | zsh shell should be use
       user:
-        name: "{{ ansible_user_id }}"
+        name: "{{ item }}"
         shell: /usr/bin/zsh
       register: ohmyzsh_shell
+      loop:
+        - root
+        - foo
+        - bar
 
     - name: Verify | ohmyzsh {{ ansible_env.ohmyzsh_theme }} theme should be present
       command: grep 'ZSH_THEME="{{ ansible_env.ohmyzsh_theme }}"' ~/.zshrc
