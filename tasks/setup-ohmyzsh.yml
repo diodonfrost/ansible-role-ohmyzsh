@@ -20,7 +20,7 @@
 
 - name: Setup | Set zsh as default user shell
   ansible.builtin.user:
-    name: "{{ ohmyzsh_users }}"
+    name: "{{ item }}"
     shell: "{{ zsh_bin_path }}"
   become: true
   with_items: "{{ ohmyzsh_users }}"
