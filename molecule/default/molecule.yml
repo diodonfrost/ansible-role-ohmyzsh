@@ -16,9 +16,6 @@ platforms:
     cgroupns_mode: host
     privileged: yes
     pre_build_image: yes
-    env:
-      ohmyzsh_theme: "${ohmyzsh_theme:-robbyrussell}"
-      ohmyzsh_plugins: "${ohmyzsh_plugins:-git}"
 provisioner:
   name: ansible
 verifier:

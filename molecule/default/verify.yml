@@ -2,13 +2,18 @@
 - name: Verify
   hosts: all
   tasks:
+    - name: Verify | Get custom ansible role variable
+      ansible.builtin.set_fact:
+        ohmyzsh_theme: "{{ lookup('env', 'ohmyzsh_theme') | default('robbyrussell', True) }}"
+        ohmyzsh_plugins: "{{ lookup('env', 'ohmyzsh_plugins') | default(['git', 'ansible'], True) }}"
+
     - name: Verify | ohmyzsh folder shoud be present
-      file:
+      ansible.builtin.file:
         path: ~/.oh-my-zsh
       register: ohmyzsh_file
 
     - name: Verify | zsh shell should be use
-      user:
+      ansible.builtin.user:
         name: "{{ item }}"
         shell: /usr/bin/zsh
       register: ohmyzsh_shell
@@ -17,16 +22,16 @@
         - foo
         - bar
 
-    - name: Verify | ohmyzsh {{ ansible_env.ohmyzsh_theme }} theme should be present
-      command: grep 'ZSH_THEME="{{ ansible_env.ohmyzsh_theme }}"' ~/.zshrc
+    - name: Verify | ohmyzsh theme should be present
+      ansible.builtin.command: grep 'ZSH_THEME="{{ ohmyzsh_theme }}"' ~/.zshrc
       register: ohmyzsh_theme
 
     - name: Verify | ohmyzsh plugins should be present
-      command: grep 'plugins=({{ ansible_env.ohmyzsh_plugins.split(",") | join(" ") }})' ~/.zshrc
+      ansible.builtin.command: grep 'plugins=({{ ohmyzsh_plugins | join(" ") }})' ~/.zshrc
       register: ohmyzsh_plugins
 
     - name: Verify | Verify commands outputs
-      assert:
+      ansible.builtin.assert:
         that:
           - not ohmyzsh_file.changed
           - not ohmyzsh_shell.changed
