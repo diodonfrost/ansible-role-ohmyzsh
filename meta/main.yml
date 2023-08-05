@@ -4,74 +4,45 @@ galaxy_info:
   company: diodonfrost
   description: Ansible role for install ohmyzsh
   license: license Apache
-
-  min_ansible_version: 2.8
+  min_ansible_version: "2.10"
 
   platforms:
     - name: EL
       versions:
-        - 8
-        - 7
-        - 6
+        - "9"
+        - "8"
+        - "7"
     - name: Fedora
       versions:
-        - 31
-        - 30
-        - 29
-        - 28
-        - 27
-        - 26
+        - all
     - name: Debian
       versions:
+        - bookworm
+        - bullseye
         - buster
-        - stretch
-        - jessie
-        - wheezy
-        - squeeze
     - name: Ubuntu
       versions:
+        - focal
         - bionic
         - xenial
-        - trusty
-        - precise
-    - name: Amazon
+    - name: Amazon Linux
       versions:
-        - 2017.12
-        - 2016.03
-        - 2013.09
+        - all
     - name: opensuse
       versions:
-        - 15.2
-        - 15.1
-        - 15.0
-        - 42.2
-        - 42.1
+        - all
     - name: ArchLinux
       versions:
-        - any
-    - name: Alpine
-      versions:
-        - any
-    - name: Gentoo
-      versions:
-        - any
-    - name: ClearLinux
-      versions:
-        - any
-    - name: FreeBSD
-      versions:
-        - 11.2
-        - 10.4
-        - 10.3
-    - name: OpenBSD
-      versions:
-        - 6.0
-        - 6.4
+        - all
     - name: MacOSX
       versions:
-        - 10.11
-        - 10.12
-        - 10.13
+        - all
+    - name: FreeBSD
+      versions:
+        - all
+    - name: OpenBSD
+      versions:
+        - all
 
   galaxy_tags:
     - shell
