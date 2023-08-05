@@ -1,9 +1,9 @@
 ---
 - name: Plugins | Set ohmyzsh plugins to used
   lineinfile:
-    path: ~/.zshrc
+    path: "{{ item['home'] }}/.zshrc"
     regexp: '^plugins='
     line: 'plugins=({{ ohmyzsh_plugins | join(" ") }})'
-  become: true
-  become_user: "{{ item }}"
-  with_items: "{{ ohmyzsh_users }}"
+    owner: "{{ item['name'] }}"
+    group: "{{ item['group'] }}"
+  loop: "{{ ohmyzsh_users_information }}"

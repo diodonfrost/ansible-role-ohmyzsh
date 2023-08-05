@@ -3,10 +3,10 @@
 
 - name: Configure .zshrc
   copy:
-    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
-    dest: ~/.zshrc
+    src: "{{ item['home'] }}/.oh-my-zsh/templates/zshrc.zsh-template"
+    dest: "{{ item['home'] }}/.zshrc"
+    owner: "{{ item['name'] }}"
+    group: "{{ item['group'] }}"
     mode: '0644'
     remote_src: yes
-  become: yes
-  become_user: "{{ item }}"
-  with_items: "{{ ohmyzsh_users }}"
+  with_items: "{{ ohmyzsh_users_information }}"
