@@ -1,6 +1,6 @@
 ---
 - name: Themes | Set ohmyzsh theme to used
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ item['home'] }}/.zshrc"
     regexp: '^ZSH_THEME='
     line: 'ZSH_THEME="{{ ohmyzsh_theme }}"'

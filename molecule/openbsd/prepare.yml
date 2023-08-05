@@ -5,7 +5,7 @@
   gather_facts: no
   tasks:
     - name: OpenBSD | Install Ansible requirements
-      raw: pkg_add -z python3 unzip-6
+      ansible.builtin.raw: pkg_add -z python3 unzip-6
 
     - name: OpenBSD | Create test users
       ansible.builtin.user:

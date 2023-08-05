@@ -1,6 +1,6 @@
 ---
 - name: Setup | Package requirements
-  package:
+  ansible.builtin.package:
     name: "{{ package_requirements[ansible_facts['os_family']] | default(default_package_requirements) }}"
     state: present
 
@@ -19,7 +19,7 @@
   loop: "{{ ohmyzsh_users_register.results }}"
 
 - name: Setup | Download ohmyzsh
-  git:
+  ansible.builtin.git:
     repo: 'https://github.com/ohmyzsh/ohmyzsh.git'
     dest: "{{ item['home'] }}/.oh-my-zsh"
     depth: 1
@@ -36,4 +36,4 @@
   loop: "{{ ohmyzsh_users_information }}"
 
 - name: Setup | Flush handler
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers

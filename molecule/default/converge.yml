@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: "Include ansible-role-ohmyzsh"
-      include_role:
+      ansible.builtin.include_role:
         name: "ansible-role-ohmyzsh"
       vars:
         ohmyzsh_theme: "{{ lookup('env', 'ohmyzsh_theme') | default('robbyrussell', True) }}"
