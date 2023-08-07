@@ -4,7 +4,8 @@
 # Install ohmyzsh for the defined users.
 # Default: current ansible connection user
 # Possible values: "*", "LINUX_USERS"
-ohmyzsh_users: "{{ ansible_user_id }}"
+ohmyzsh_users: 
+- "{{ ansible_user_id }}"
 
 # Setup the ohmyzsh theme to used
 ohmyzsh_theme: robbyrussell
