@@ -4,7 +4,7 @@ driver:
   provider:
     name: libvirt
 platforms:
-  - name: openbsd
+  - name: ohmyzsh-openbsd
     box: pygolo/openbsd7
     memory: 4096
     cpus: 2
@@ -12,5 +12,5 @@ provisioner:
   name: ansible
   inventory:
     host_vars:
-      openbsd:
+      ohmyzsh-openbsd:
         ansible_python_interpreter: /usr/local/bin/python3
