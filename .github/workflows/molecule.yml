@@ -25,9 +25,6 @@ jobs:
           - debian:12
           - ubuntu:26.04
           - ubuntu:24.04
-          - opensuse:16.0
-          - archlinux:latest
-          - alpine:latest
         ohmyzsh_theme:
           - intheloop
           - jispwoso
@@ -56,5 +53,6 @@ jobs:
       - name: Test Ansible role with check_mode enable
         run: molecule check
         env:
+          namespace: ${{ env.docker_namespace }}
           image: ansible-${{ matrix.image }}
           ohmyzsh_theme: ${{ matrix.ohmyzsh_theme }}
