@@ -23,7 +23,7 @@
     repo: 'https://github.com/ohmyzsh/ohmyzsh.git'
     dest: "{{ item['home'] }}/.oh-my-zsh"
     depth: 1
-    update: no
+    update: false
   notify: Configure .zshrc
   loop: "{{ ohmyzsh_users_information }}"
 
@@ -32,7 +32,7 @@
     path: "{{ item['home'] }}/.oh-my-zsh"
     owner: "{{ item['name'] }}"
     group: "{{ item['group'] }}"
-    recurse: yes
+    recurse: true
     state: directory
   loop: "{{ ohmyzsh_users_information }}"
 

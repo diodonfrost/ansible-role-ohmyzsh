@@ -8,5 +8,5 @@
     owner: "{{ item['name'] }}"
     group: "{{ item['group'] }}"
     mode: '0644'
-    remote_src: yes
+    remote_src: true
   with_items: "{{ ohmyzsh_users_information }}"
