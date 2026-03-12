@@ -6,7 +6,7 @@
   vars:
     params:
       files:
-        - "{{ ansible_system }}.yml"
+        - "{{ ansible_facts['system'] }}.yml"
         - main.yml
       paths:
         - 'vars'
