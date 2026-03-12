@@ -33,6 +33,7 @@
     owner: "{{ item['name'] }}"
     group: "{{ item['group'] }}"
     recurse: yes
+    state: directory
   loop: "{{ ohmyzsh_users_information }}"
 
 - name: Setup | Flush handler
