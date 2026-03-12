@@ -107,7 +107,10 @@ This role can also configure ohmyzsh theme and plugins.
     - role: diodonfrost.ohmyzsh
       vars:
         ohmyzsh_theme: intheloop
-        ohmyzsh_plugins: "git,docker,systemd"
+        ohmyzsh_plugins:
+          - git
+          - docker
+          - systemd
 ```
 
 ## Local Testing

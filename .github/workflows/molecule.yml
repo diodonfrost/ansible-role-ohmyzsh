@@ -31,9 +31,6 @@ jobs:
         ohmyzsh_theme:
           - intheloop
           - jispwoso
-        ohmyzsh_plugins:
-          - "git,docker,systemd"
-          - "rails,git,ruby"
 
     steps:
       - name: Checkout repository
