@@ -1,5 +1,5 @@
 ---
-- name: Plugins | Set ohmyzsh plugins to used
+- name: Plugins | Set ohmyzsh plugins to use
   ansible.builtin.lineinfile:
     path: "{{ item['home'] }}/.zshrc"
     regexp: '^plugins='
