@@ -1,13 +1,13 @@
 ---
 - name: Setup | Package requirements
   ansible.builtin.package:
-    name: "{{ package_requirements[ansible_facts['os_family']] | default(default_package_requirements) }}"
+    name: "{{ _package_requirements[ansible_facts['os_family']] | default(_default_package_requirements) }}"
     state: present
 
 - name: Get users information
   ansible.builtin.user:
     name: "{{ item }}"
-    shell: "{{ zsh_bin_path }}"
+    shell: "{{ _zsh_bin_path }}"
     state: present
   register: ohmyzsh_users_register
   loop: "{{ ohmyzsh_users }}"
