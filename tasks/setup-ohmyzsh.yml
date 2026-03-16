@@ -3,6 +3,7 @@
   ansible.builtin.package:
     name: "{{ _package_requirements[ansible_facts['os_family']] | default(_default_package_requirements) }}"
     state: present
+  become: "{{ ansible_facts['system'] != 'Darwin' }}"
 
 - name: Get users information
   ansible.builtin.user:
