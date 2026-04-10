@@ -24,7 +24,7 @@
     repo: '{{ ohmyzsh_repo_url }}'
     dest: "{{ item['home'] }}/.oh-my-zsh"
     depth: 1
-    update: false
+    update: "{{ ohmyzsh_update }}"
   notify: Configure .zshrc
   loop: "{{ ohmyzsh_users_information }}"
 

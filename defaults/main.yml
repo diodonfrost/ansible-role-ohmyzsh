@@ -11,6 +11,11 @@ ohmyzsh_users:
 # Override to use a mirror or enterprise fork (e.g., air-gapped environments)
 ohmyzsh_repo_url: https://github.com/ohmyzsh/ohmyzsh.git
 
+# Pull updates on every run when the Oh My Zsh repository is already cloned.
+# Disabled by default to preserve existing behavior; set to true to keep
+# Oh My Zsh up to date.
+ohmyzsh_update: false
+
 # Setup the ohmyzsh theme to used
 ohmyzsh_theme: robbyrussell
 
