@@ -67,6 +67,10 @@ This role has multiple variables. The defaults for all these variables are the f
 ohmyzsh_users:
   - "{{ ansible_user_id }}"
 
+# URL of the Oh My Zsh Git repository
+# Override to use a mirror or enterprise fork (e.g., air-gapped environments)
+ohmyzsh_repo_url: https://github.com/ohmyzsh/ohmyzsh.git
+
 # Setup the ohmyzsh theme to used
 ohmyzsh_theme: robbyrussell
 
